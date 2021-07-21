@@ -11,6 +11,8 @@
       |
       <router-link to="/index">Index</router-link>
       |
+      <router-link to="/new">New</router-link>
+      |
       <router-link to="/about">About</router-link>
       |
       <router-link to="/test">Test</router-link>
