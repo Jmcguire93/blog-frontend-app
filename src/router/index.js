@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import PostIndex from "../views/PostIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -28,11 +29,16 @@ const routes = [
   },
   {
     path: "/signup",
-    name: "signup",
+    name: "Signup",
     component: Signup,
   },
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
+  {
+    path: "/index",
+    name: "index",
+    component: PostIndex,
+  },
 ];
 
 const router = new VueRouter({
