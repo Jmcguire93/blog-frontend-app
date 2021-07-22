@@ -30,7 +30,7 @@ export default {
   // },
   methods: {
     createPost: function () {
-      console.log("Making a dang post!");
+      console.log("Creating a post!");
       axios
         .post("http://localhost:3000/posts", this.newPostParams)
         .then((response) => {
