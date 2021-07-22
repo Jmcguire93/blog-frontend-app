@@ -9,9 +9,9 @@
       |
       <router-link to="/logout">Logout</router-link>
       |
-      <router-link to="/index">Posts</router-link>
+      <router-link to="/posts">Posts</router-link>
       |
-      <router-link to="/new">New</router-link>
+      <router-link to="/posts/new">New</router-link>
       |
       <router-link to="/show">Show</router-link>
       |

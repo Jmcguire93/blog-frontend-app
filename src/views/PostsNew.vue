@@ -1,5 +1,5 @@
 <template>
-  <div class="postsnew">
+  <div class="posts-new">
     <h1>New Post!</h1>
     <div>
       Title:
@@ -25,9 +25,7 @@ export default {
       currentPost: {},
     };
   },
-  // created: function () {
-  //   this.createPost();
-  // },
+
   methods: {
     createPost: function () {
       console.log("Creating a post!");

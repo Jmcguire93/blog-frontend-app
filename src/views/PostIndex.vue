@@ -1,5 +1,5 @@
 <template>
-  <div class="allposts">
+  <div class="posts-index">
     <h1>{{ message }}</h1>
 
     <div v-for="post in posts" :key="post.id">
@@ -7,7 +7,7 @@
       <p>Body: {{ post.body }}</p>
       <img v-bind:src="post.image" alt="post.title" />
       <!-- <p><router-link to="`/show/${post.id}`">Link to this post</router-link></p> -->
-      <p><router-link v-bind:to="`/show/${post.id}`">Link to post</router-link></p>
+      <p><router-link v-bind:to="`/posts/${post.id}`">Link to post</router-link></p>
     </div>
   </div>
 </template>
