@@ -4,7 +4,7 @@
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
       <img v-bind:src="post.image" alt="post.title" />
-      <p><router-link to="/">Back to all posts</router-link></p>
+      <p><router-link to="/index">Back to all posts</router-link></p>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
     };
   },
   created: function () {
-    axios.get("http://localhost:3000/posts/1").then((response) => {
+    axios.get("http://localhost:3000/posts/" + this.$route.params.id).then((response) => {
       this.post = response.data;
     });
   },

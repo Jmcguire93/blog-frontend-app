@@ -47,7 +47,7 @@ const routes = [
     component: PostNew,
   },
   {
-    path: "/show",
+    path: "/show/:id",
     name: "posts-show",
     component: PostShow,
   },

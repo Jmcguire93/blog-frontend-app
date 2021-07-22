@@ -15,6 +15,10 @@
       </div>
       <input type="submit" value="Submit" />
     </form>
+    <p>
+      Not a member?
+      <router-link to="/signup">Signup</router-link>
+    </p>
   </div>
 </template>
 

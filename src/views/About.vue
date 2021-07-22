@@ -2,6 +2,11 @@
   <div class="about">
     <h1>About</h1>
     <p>{{ message }}</p>
+    <p>
+      Click
+      <router-link to="/login">here</router-link>
+      to begin using this application
+    </p>
   </div>
 </template>
 
