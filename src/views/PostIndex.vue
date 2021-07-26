@@ -18,7 +18,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Here are posts!",
+      message: "Posts",
       posts: [],
       newPostParams: {},
       currentPost: {},

@@ -81,5 +81,6 @@
 body {
   font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
   background-image: url("./assets/what-the-hex.png");
+  text-align: center;
 }
 </style>
