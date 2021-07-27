@@ -38,8 +38,9 @@
               Users
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/login">Login</a>
-              <a class="dropdown-item" href="/signup">Signup</a>
+              <a class="dropdown-item" v-if="!isLoggedIn()" href="/login">Login</a>
+              <a class="dropdown-item" v-if="!isLoggedIn()" href="/signup">Signup</a>
+              <a class="dropdown-item" v-if="isLoggedIn()" href="/logout">Logout</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
@@ -54,23 +55,35 @@
         </form>
       </div>
     </nav>
-    <div id="nav">
-      <router-link to="/">Home</router-link>
+    <!-- <div id="nav">
+      <li>
+        <router-link to="/">Home</router-link>
+      </li>
       |
-      <router-link to="/login">Login</router-link>
+      <li v-if="!isLoggedIn()">
+        <router-link to="/signup">Signup</router-link>
+      </li>
       |
-      <router-link to="/signup">Signup</router-link>
+      <li v-if="!isLoggedIn()">
+        <router-link to="/login">Login</router-link>
+      </li>
       |
-      <router-link to="/logout">Logout</router-link>
+      <li v-if="isLoggedIn()">
+        <router-link to="/logout">Logout</router-link>
+      </li>
       |
-      <router-link to="/posts">Posts</router-link>
+      <li>
+        <router-link to="/about">About</router-link>
+      </li>
       |
-      <router-link to="/posts/new">New</router-link>
+      <li>
+        <router-link to="/posts">Posts</router-link>
+      </li>
       |
-      <router-link to="/about">About</router-link>
-      |
-      <router-link to="/test">Test</router-link>
-    </div>
+      <li>
+        <router-link to="/posts/new">Create</router-link>
+      </li>
+    </div> -->
     <router-view />
   </div>
 </template>
@@ -82,3 +95,19 @@ body {
   text-align: center;
 }
 </style>
+
+<script>
+// import axios from "axios";
+
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>

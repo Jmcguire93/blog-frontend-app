@@ -1,15 +1,18 @@
 <template>
   <div class="posts-new">
-    <h1>New Post!</h1>
-    <div>
-      Title:
-      <input type="text" v-model="newPostParams.title" />
-      Body:
-      <input type="text" v-model="newPostParams.body" />
-      Image:
-      <input type="text" v-model="newPostParams.image" />
-    </div>
-    <button v-on:click="createPost()">Create</button>
+    <img v-if="status" :src="`https://http.cat/${status}`" />
+    <form v-on:submit.prevent="createPost()">
+      <h1>New Post!</h1>
+      <div>
+        Title:
+        <input type="text" v-model="newPostParams.title" />
+        Body:
+        <input type="text" v-model="newPostParams.body" />
+        Image:
+        <input type="text" v-model="newPostParams.image" />
+      </div>
+      <button v-on:click="createPost()">Create</button>
+    </form>
   </div>
 </template>
 
@@ -23,6 +26,7 @@ export default {
       posts: [],
       newPostParams: {},
       currentPost: {},
+      status: "",
     };
   },
 
@@ -30,12 +34,14 @@ export default {
     createPost: function () {
       console.log("Creating a post!");
       axios
-        .post("http://localhost:3000/posts", this.newPostParams)
+        .post("/posts", this.newPostParams)
         .then((response) => {
+          this.$router.push("/posts");
           console.log("Success!", response.data);
-          this.posts.push(response.data);
         })
-        .catch((error) => console.log(error.response));
+        .catch((error) => {
+          this.status = error.response.status;
+        });
     },
   },
 };
