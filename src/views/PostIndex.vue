@@ -1,6 +1,16 @@
 <template>
   <div class="posts-index">
     <h1>{{ message }}</h1>
+    Search by title:
+    <input v-model="titleFilter" />
+    <div
+      v-for="post in filterBy(posts, titleFilter, 'title', 'body')"
+      :key="post.id"
+      v-bind:class="{ selected: post === currentPost }"
+      v-on:click="currentPost = post"
+    >
+      <!-- {{ post.name }} -->
+    </div>
 
     <div v-for="post in posts" :key="post.id">
       <h2>Title: {{ post.title }}</h2>
@@ -13,9 +23,12 @@
 </template>
 
 <script>
+import Vue2Filters from "vue2-filters";
+
 import axios from "axios";
 
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function () {
     return {
       message: "Posts",
