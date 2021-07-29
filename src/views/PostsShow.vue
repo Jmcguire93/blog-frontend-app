@@ -4,9 +4,9 @@
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
       <img v-bind:src="post.image" alt="post.title" />
-      <p>
+      <li v-if="$parent.getUserId() == post.user_id">
         <router-link v-bind:to="`/posts/${post.id}/edit`"><button>Edit Post</button></router-link>
-      </p>
+      </li>
       <router-link to="/posts">Back to all posts</router-link>
     </div>
   </div>
@@ -25,6 +25,7 @@ export default {
   created: function () {
     axios.get("http://localhost:3000/posts/" + this.$route.params.id).then((response) => {
       this.post = response.data;
+      console.log(response.data);
     });
   },
 };
